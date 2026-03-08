@@ -1,0 +1,6 @@
+[
+  { "id": "foundation", "title": "Foundation", "order": 1, "description": "Core concepts of prompt engineering", "icon": "BookOpen" },
+  { "id": "prompt-design", "title": "Prompt Design Basics", "order": 2, "description": "Essential prompting techniques", "icon": "Lightbulb" },
+  { "id": "prompt-optimization", "title": "Prompt Optimization", "order": 3, "description": "Advanced reasoning and optimization", "icon": "Zap" },
+  { "id": "use-cases", "title": "Real World Use Cases", "order": 4, "description": "Practical applications of prompt engineering", "icon": "Code" }
+]

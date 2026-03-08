@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary: #10B981;
+  --color-primary-light: #34D399;
+  --color-primary-dark: #059669;
+  --color-accent: #22D3EE;
+  --color-accent-dark: #06B6D4;
+
+  /* Dark mode (default) */
+  --color-bg-dark: #0B1220;
+  --color-bg-dark-secondary: #111827;
+  --color-card-dark: #1F2937;
+  --color-card-dark-hover: #374151;
+  --color-text-dark: #E5E7EB;
+  --color-text-dark-secondary: #9CA3AF;
+  --color-border-dark: #374151;
+
+  /* Light mode */
+  --color-bg-light: #F9FAFB;
+  --color-bg-light-secondary: #FFFFFF;
+  --color-card-light: #FFFFFF;
+  --color-card-light-hover: #F3F4F6;
+  --color-text-light: #111827;
+  --color-text-light-secondary: #6B7280;
+  --color-border-light: #E5E7EB;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.65;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode styles (default) */
+.dark body,
+.dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+/* Light mode styles */
+.light body,
+.light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+.dark ::-webkit-scrollbar-thumb { background: var(--color-border-dark); border-radius: 3px; }
+.light ::-webkit-scrollbar-thumb { background: var(--color-border-light); border-radius: 3px; }
+
+/* Code blocks - Prism overrides */
+pre[class*="language-"],
+code[class*="language-"] {
+  font-family: var(--font-mono) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+pre[class*="language-"] {
+  background: #0F172A !important;
+  color: #E2E8F0 !important;
+  border-radius: 8px !important;
+  padding: 20px !important;
+  overflow-x: auto;
+  margin: 1.5rem 0 !important;
+  position: relative;
+}
+
+code[class*="language-"] {
+  color: #E2E8F0 !important;
+}
+
+:not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.dark :not(pre) > code {
+  background: var(--color-card-dark);
+  color: var(--color-primary);
+}
+
+.light :not(pre) > code {
+  background: #F1F5F9;
+  color: var(--color-primary-dark);
+}
+
+/* Prose overrides */
+.prose h1 { font-size: 2.625rem; font-weight: 800; margin-bottom: 1rem; }
+.prose h2 { font-size: 1.875rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem; }
+.prose h3 { font-size: 1.5rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.5rem; }
+.prose p { margin-bottom: 1.25rem; }
+.prose ul, .prose ol { margin: 1rem 0; padding-left: 1.5rem; }
+.prose li { margin-bottom: 0.5rem; }
+
+.dark .prose { color: var(--color-text-dark); }
+.dark .prose h1, .dark .prose h2, .dark .prose h3, .dark .prose strong { color: #F9FAFB; }
+.dark .prose a { color: var(--color-primary); }
+.dark .prose blockquote { border-left: 4px solid var(--color-primary); padding-left: 1rem; color: var(--color-text-dark-secondary); }
+
+.light .prose { color: var(--color-text-light); }
+.light .prose h1, .light .prose h2, .light .prose h3, .light .prose strong { color: #111827; }
+.light .prose a { color: var(--color-primary-dark); }
+.light .prose blockquote { border-left: 4px solid var(--color-primary); padding-left: 1rem; color: var(--color-text-light-secondary); }
+
+/* Skeleton loading */
+.skeleton {
+  background: linear-gradient(90deg, var(--color-border-dark) 25%, var(--color-bg-dark-secondary) 50%, var(--color-border-dark) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+.light .skeleton {
+  background: linear-gradient(90deg, #E5E7EB 25%, #F9FAFB 50%, #E5E7EB 75%);
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
