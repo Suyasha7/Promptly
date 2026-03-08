@@ -1,4 +1,4 @@
-# Promptly — Master Prompt Engineering
+# Promptly
 
 **Promptly** is a developer learning platform for mastering prompt engineering through structured lessons, an interactive playground, and hands-on challenges.
 
